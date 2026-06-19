@@ -1,0 +1,123 @@
+/* Основной контейнер хедера */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  
+  /* Эффект стекла (Glassmorphism), отлично сочетается с фоном главной страницы */
+  background: rgba(15, 23, 42, 0.8); /* темный полупрозрачный цвет */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  
+  z-index: 1000; /* Чтобы хедер всегда был поверх контента */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Стилизация Логотипа */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+/* Навигация (блок со ссылками) */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Расстояние между ссылками */
+}
+
+/* Обычные ссылки (Home, Products, Profile, Login, Register) */
+.nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #94a3b8; /* Спокойный серый цвет */
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+/* Анимация подчеркивания при наведении */
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #6366f1;
+  transition: width 0.2s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Кнопка Logout (Выход) */
+.nav button {
+  background: rgba(239, 68, 68, 0.1); /* Прозрачно-красный фон */
+  color: #ef4444; /* Красный текст */
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.nav button:hover {
+  background: #ef4444; /* Насыщенный красный при наведении */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  transform: translateY(-1px);
+}
+
+.nav button:active {
+  transform: translateY(0);
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 600px) {
+  .header {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    gap: 14px; /* Уменьшаем расстояние на мобилках */
+  }
+
+  .nav a {
+    font-size: 0.85rem;
+  }
+
+  .nav button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

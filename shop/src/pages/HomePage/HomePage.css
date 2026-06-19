@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --text-dark: #111827;
+  --text-light: #6b7280;
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --card-bg: #ffffff;
+}
+
+.home-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.hero-section {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 540px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: var(--primary-color);
+}
+
+.hero-text {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px -6px var(--primary-color);
+}
+
+.hero-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -4px var(--primary-color);
+}
+
+.features-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.features-card h2 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.features-list li span {
+  font-size: 1.25rem;
+  width: 24px;
+  display: inline-block;
+}

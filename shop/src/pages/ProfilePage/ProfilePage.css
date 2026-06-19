@@ -1,0 +1,201 @@
+/* Контейнер страницы */
+.profile_container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 40px; /* Отступ сверху от хедера */
+  background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #f8fafc;
+}
+
+/* Главная карточка профиля */
+.profile_card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease-out;
+}
+
+.text_center {
+  text-align: center;
+}
+
+/* Верхняя часть (Аватар, Имя) */
+.profile_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile_avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.profile_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile_name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.profile_username {
+  font-size: 1rem;
+  color: #6366f1;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Разделитель */
+.profile_divider {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 32px 0;
+}
+
+/* Сетка параметров (Дашборд) */
+.profile_info_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info_box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.info_box:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.info_label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info_value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.status_active {
+  color: #10b981; /* Зеленый цвет для статуса */
+}
+
+/* --- Эффекты загрузки (Скелетоны) --- */
+.skeleton_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skeleton_avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 20px;
+}
+
+.skeleton_text {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.skeleton_text.title {
+  width: 200px;
+  height: 28px;
+}
+
+.skeleton_text.subtitle {
+  width: 120px;
+  height: 18px;
+  margin-bottom: 32px;
+}
+
+.skeleton_info_box {
+  height: 88px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+}
+
+/* Анимация мерцания для всех скелетонов */
+.skeleton_avatar, .skeleton_text, .skeleton_info_box {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton_avatar::after, .skeleton_text::after, .skeleton_info_box::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 560px) {
+  .profile_card {
+    padding: 30px 20px;
+  }
+  
+  .profile_info_grid {
+    grid-template-columns: 1fr; /* В одну колонку на мобильных */
+    gap: 12px;
+  }
+
+  .profile_name {
+    font-size: 1.6rem;
+  }
+}
