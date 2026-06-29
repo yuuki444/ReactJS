@@ -32,7 +32,7 @@ export default function ProfilePage(){
         loadCurrentUser()
     }, [])
 
-    // 1. Состояние загрузки (Красивый скелетон)
+
     if (loading) {
         return (
             <div className="profile_container">
@@ -49,7 +49,6 @@ export default function ProfilePage(){
         )
     }
 
-    // 2. Если пользователя нет
     if (!user) {
         return (
             <div className="profile_container">
@@ -61,7 +60,7 @@ export default function ProfilePage(){
         )
     }
 
-    // 3. Основной контент профиля
+
     return (
         <div className="profile_container">
             <div className="profile_card">
@@ -82,7 +81,7 @@ export default function ProfilePage(){
 
                 <hr className="profile_divider" />
 
-                {/* Сетка с личной информацией */}
+
                 <div className="profile_info_grid">
                     <div className="info_box">
                         <span className="info_label">Email</span>
